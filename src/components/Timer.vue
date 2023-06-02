@@ -14,7 +14,7 @@ import TimeTracker from './TimeTracker.vue';
 import TimeTrackerButton from './TimeTrackerButton.vue';
 
 export default defineComponent({
-  name: "TimerItem",
+  name: "Timer",
   data() {
     return {
       time: 0,

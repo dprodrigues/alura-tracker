@@ -6,7 +6,7 @@
       </div>
 
       <div class="column">
-        <TimerItem @timer-finished="finishTask" />
+        <Timer @timer-finished="finishTask" />
       </div>
     </div>
   </div>
@@ -14,12 +14,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import TimerItem from './TimerItem.vue';
+import Timer from './Timer.vue';
 
 export default defineComponent({
-  name: "FormItem",
+  name: "Form",
   components: {
-    TimerItem
+    Timer
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <BoxBold>
+  <Box>
     <div class="columns">
       <div class="column is-7">{{ task.description || 'Tarefa sem descrição' }}</div>
 
@@ -7,17 +7,17 @@
         <TimeTracker :time="task.time" />
       </div>
     </div>
-  </BoxBold>
+  </Box>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import TimeTracker from './TimeTracker.vue';
-import BoxBold from './BoxBold.vue';
+import Box from './Box.vue';
 import { ITask } from '@/interfaces/ITask';
 
 export default defineComponent({
-  name: "TaskItem",
+  name: "Task",
   props: {
     task: {
       type: Object as PropType<ITask>,
@@ -26,7 +26,7 @@ export default defineComponent({
   },
   components: {
     TimeTracker,
-    BoxBold,
+    Box,
   }
 })
 

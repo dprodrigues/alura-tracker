@@ -5,12 +5,12 @@
     </div>
 
     <div class="column is-three-quarter content">
-      <FormItem @onSaveTask="saveTask" />
+      <Form @onSaveTask="saveTask" />
 
       <div class="list">
-        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
+        <Task v-for="(task, index) in tasks" :key="index" :task="task" />
 
-        <BoxBold v-if="isListEmpty">Não possui nenhuma tarefa na sua lista.</BoxBold>
+        <Box v-if="isListEmpty">Não possui nenhuma tarefa na sua lista.</Box>
       </div>
 
     </div>
@@ -20,9 +20,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import SideBar from '@/components/SideBar.vue'
-import FormItem from './components/FormItem.vue';
-import TaskItem from './components/TaskItem.vue';
-import BoxBold from './components/BoxBold.vue';
+import Form from './components/Form.vue';
+import Task from './components/Task.vue';
+import Box from './components/Box.vue';
 import { ITask } from './interfaces/ITask';
 
 export default defineComponent({
@@ -48,9 +48,9 @@ export default defineComponent({
   },
   components: {
     SideBar,
-    FormItem,
-    TaskItem,
-    BoxBold,
+    Form,
+    Task,
+    Box,
   },
 });
 
