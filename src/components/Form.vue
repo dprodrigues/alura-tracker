@@ -1,8 +1,20 @@
 <template>
   <div class="box form">
     <div class="columns">
-      <div class="column is-8" role="form" aria-label="Formulário de criação de tarefas">
+      <div class="column is-5" role="form" aria-label="Formulário de criação de tarefas">
         <input type="text" class="input" placeholder="Tarefa a iniciar" v-model="description">
+      </div>
+
+      <div class="column is-3">
+        <div class="select">
+          <select v-model="projectId">
+            <option value="">Selecione o Projeto</option>
+
+            <option v-for="project in projects" :key="project.id" :value="project.id">
+              {{ project.name }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <div class="column">
@@ -13,7 +25,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
+import { useStore } from 'vuex'
+import { key } from '@/store';
 import Timer from './Timer.vue';
 
 export default defineComponent({
@@ -35,6 +49,13 @@ export default defineComponent({
       })
 
       this.description = ''
+    }
+  },
+  setup() {
+    const store = useStore(key)
+
+    return {
+      projects: computed(() => store.state.projects),
     }
   }
 })
